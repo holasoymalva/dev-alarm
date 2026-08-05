@@ -15,9 +15,13 @@ struct AddEditAlarmView: View {
     @State private var selectedLanguage: ProgrammingLanguage
     @State private var repeatDays: Set<Int>
     
-    let weekdays = [
-        (1, "D"), (2, "L"), (3, "M"), (4, "M"), (5, "J"), (6, "V"), (7, "S")
-    ]
+    var weekdays: [(Int, String)] {
+        if Localized.isSpanish {
+            return [(1, "D"), (2, "L"), (3, "M"), (4, "M"), (5, "J"), (6, "V"), (7, "S")]
+        } else {
+            return [(1, "S"), (2, "M"), (3, "T"), (4, "W"), (5, "T"), (6, "F"), (7, "S")]
+        }
+    }
     
     init(manager: AlarmManager, alarmToEdit: Alarm? = nil) {
         self.manager = manager
@@ -50,7 +54,7 @@ struct AddEditAlarmView: View {
                 
                 VStack(spacing: 24) {
                     // TÍTULO DE LA ACCIÓN
-                    Text(alarmToEdit == nil ? "Nueva Alarma" : "Editar Alarma")
+                    Text(alarmToEdit == nil ? Localized.tr(en: "New Alarm", es: "Nueva Alarma") : Localized.tr(en: "Edit Alarm", es: "Editar Alarma"))
                         .font(.system(.title3, design: .monospaced))
                         .fontWeight(.bold)
                         .foregroundColor(.dracForeground)
@@ -71,7 +75,7 @@ struct AddEditAlarmView: View {
                     
                     // SELECCIÓN DE LENGUAJE (Tarjetas de código)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("LENGUAJE DE EJERCICIO")
+                        Text(Localized.tr(en: "PUZZLE LANGUAGE", es: "LENGUAJE DE EJERCICIO"))
                             .font(.system(.caption, design: .monospaced))
                             .foregroundColor(.dracComment)
                             .fontWeight(.bold)
@@ -112,7 +116,7 @@ struct AddEditAlarmView: View {
                     
                     // REPETICIÓN (Días de la semana)
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("REPETIR")
+                        Text(Localized.tr(en: "REPEAT", es: "REPETIR"))
                             .font(.system(.caption, design: .monospaced))
                             .foregroundColor(.dracComment)
                             .fontWeight(.bold)
@@ -152,7 +156,7 @@ struct AddEditAlarmView: View {
                     // BOTONES GUARDAR / ELIMINAR / CANCELAR
                     VStack(spacing: 12) {
                         Button(action: saveAlarm) {
-                            Text("Guardar")
+                            Text(Localized.tr(en: "Save", es: "Guardar"))
                                 .font(.system(.body, design: .monospaced))
                                 .fontWeight(.bold)
                                 .foregroundColor(.dracBackground)
@@ -167,7 +171,7 @@ struct AddEditAlarmView: View {
                             Button(action: {
                                 deleteAlarm(alarm)
                             }) {
-                                Text("Eliminar Alarma")
+                                Text(Localized.tr(en: "Delete Alarm", es: "Eliminar Alarma"))
                                     .font(.system(.body, design: .monospaced))
                                     .fontWeight(.bold)
                                     .foregroundColor(.dracRed)
@@ -185,7 +189,7 @@ struct AddEditAlarmView: View {
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }) {
-                            Text("Cancelar")
+                            Text(Localized.tr(en: "Cancel", es: "Cancelar"))
                                 .font(.system(.body, design: .monospaced))
                                 .foregroundColor(.dracComment)
                                 .frame(maxWidth: .infinity)

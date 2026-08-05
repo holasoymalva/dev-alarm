@@ -63,7 +63,7 @@ struct ContentView: View {
                             }) {
                                 HStack(spacing: 4) {
                                     Image(systemName: "plus")
-                                    Text("nueva")
+                                    Text(Localized.tr(en: "new", es: "nueva"))
                                 }
                                 .font(.system(.caption, design: .monospaced))
                                 .fontWeight(.bold)
@@ -82,7 +82,7 @@ struct ContentView: View {
                                 Image(systemName: "bell.slash.fill")
                                     .font(.system(size: 32))
                                     .foregroundColor(.dracComment.opacity(0.5))
-                                Text("No hay alarmas configuradas")
+                                Text(Localized.tr(en: "No alarms configured", es: "No hay alarmas configuradas"))
                                     .font(.system(.footnote, design: .monospaced))
                                     .foregroundColor(.dracComment)
                             }
@@ -109,7 +109,7 @@ struct ContentView: View {
                                                 manager.alarms.remove(at: index)
                                             }
                                         } label: {
-                                            Label("Eliminar", systemImage: "trash.fill")
+                                            Label(Localized.tr(en: "Delete", es: "Eliminar"), systemImage: "trash.fill")
                                         }
                                         .tint(.dracRed)
                                     }

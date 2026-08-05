@@ -45,7 +45,7 @@ struct AlarmTriggerView: View {
                                 .rotationEffect(.degrees(pulseScale > 1.15 ? 15 : -15))
                                 .animation(Animation.linear(duration: 0.15).repeatForever(autoreverses: true), value: pulseScale)
                             
-                            Text("ALARMA ACTIVA")
+                            Text(Localized.tr(en: "ACTIVE ALARM", es: "ALARMA ACTIVA"))
                                 .font(.system(.title3, design: .monospaced))
                                 .fontWeight(.bold)
                                 .foregroundColor(.dracRed)
@@ -189,7 +189,7 @@ struct AlarmTriggerView: View {
                         }) {
                             HStack {
                                 Image(systemName: "doc.text.magnifyingglass")
-                                Text("Solución")
+                                Text(Localized.tr(en: "Solution", es: "Solución"))
                             }
                             .font(.system(.footnote, design: .monospaced))
                             .foregroundColor(.dracCyan)
@@ -223,7 +223,7 @@ struct AlarmTriggerView: View {
                     // MOSTRAR HINT SI ESTÁ ACTIVO
                     if showHint {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("💡 SUGERENCIA:")
+                            Text(Localized.tr(en: "💡 HINT:", es: "💡 SUGERENCIA:"))
                                 .font(.system(.caption, design: .monospaced))
                                 .fontWeight(.bold)
                                 .foregroundColor(.dracYellow)
@@ -353,7 +353,7 @@ struct ExplanationView: View {
             VStack(spacing: 20) {
                 // Cabezal
                 HStack {
-                    Text("Explicación del Ejercicio")
+                    Text(Localized.tr(en: "Exercise Explanation", es: "Explicación del Ejercicio"))
                         .font(.system(.title3, design: .monospaced))
                         .fontWeight(.bold)
                         .foregroundColor(.dracCyan)
@@ -373,7 +373,7 @@ struct ExplanationView: View {
                     VStack(alignment: .leading, spacing: 20) {
                         // Título de la pregunta
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("TEMA:")
+                            Text(Localized.tr(en: "TOPIC:", es: "TEMA:"))
                                 .font(.system(.caption, design: .monospaced))
                                 .foregroundColor(.dracComment)
                                 .fontWeight(.bold)
@@ -386,7 +386,7 @@ struct ExplanationView: View {
                         
                         // Respuesta Correcta
                         VStack(alignment: .leading, spacing: 6) {
-                            Text("RESPUESTA CORRECTA:")
+                            Text(Localized.tr(en: "CORRECT ANSWER:", es: "RESPUESTA CORRECTA:"))
                                 .font(.system(.caption, design: .monospaced))
                                 .foregroundColor(.dracGreen)
                                 .fontWeight(.bold)
@@ -408,7 +408,7 @@ struct ExplanationView: View {
                         
                         // Explicación
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("¿POR QUÉ?")
+                            Text(Localized.tr(en: "WHY?", es: "¿POR QUÉ?"))
                                 .font(.system(.caption, design: .monospaced))
                                 .foregroundColor(.dracPurple)
                                 .fontWeight(.bold)
@@ -426,11 +426,11 @@ struct ExplanationView: View {
                 
                 // Mensaje persuasivo de aprendizaje
                 VStack(spacing: 8) {
-                    Text("💡 APRENDIZAJE REFORZADO")
+                    Text(Localized.tr(en: "💡 REINFORCED LEARNING", es: "💡 APRENDIZAJE REFORZADO"))
                         .font(.system(.caption, design: .monospaced))
                         .fontWeight(.bold)
                         .foregroundColor(.dracYellow)
-                    Text("Para apagar la alarma, debes cerrar esta explicación y seleccionar la respuesta correcta.")
+                    Text(Localized.tr(en: "To turn off the alarm, you must close this explanation and select the correct answer.", es: "Para apagar la alarma, debes cerrar esta explicación y seleccionar la respuesta correcta."))
                         .font(.caption)
                         .foregroundColor(.dracForeground)
                         .multilineTextAlignment(.center)
